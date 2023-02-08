@@ -10,8 +10,8 @@ public class Person implements Runnable{
     public Person(String name, int age, int heartBeatMilliSeconds) {
         this.name = name;
         this.age = age;
-        breathing= new Thread(this);
-        heart= new Thread(this);
+        breathing= new Thread(new Lungs());
+        heart= new Thread(new HeartBeat(heartBeatMilliSeconds));
         life= new Thread(this);
     }
 
